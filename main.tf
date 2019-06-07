@@ -55,3 +55,18 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 }
+
+# Create network interface
+resource "azurerm_network_interface" "nic" {
+  name                      = "myNIC"
+  location                  = "eastus"
+  resource_group_name       = "${azurerm_resource_group.rg.name}"
+  network_security_group_id = "${azurerm_network_security_group.nsg.id}"
+
+  ip_configuration {
+    name                          = "myNICConfg"
+    subnet_id                     = "${azurerm_subnet.subnet.id}"
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = "${azurerm_public_ip.publicip.id}"
+  }
+}
