@@ -28,3 +28,12 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   address_prefix       = "10.0.1.0/24"
 }
+
+# Create public IP
+resource "azurerm_public_ip" "publicip" {
+  name                         = "myTFPublicIP"
+  location                     = "eastus"
+  resource_group_name          = "${azurerm_resource_group.rg.name}"
+  public_ip_address_allocation = "dynamic"
+}
+
