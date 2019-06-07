@@ -37,3 +37,21 @@ resource "azurerm_public_ip" "publicip" {
   public_ip_address_allocation = "dynamic"
 }
 
+# Create Network Security Group and rule
+resource "azurerm_network_security_group" "nsg" {
+  name                = "myTFNSG"
+  location            = "eastus"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+
+  security_rule {
+    name                       = "SSH"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
