@@ -1,0 +1,2 @@
+location = "southcentralus"
+prefix = "tf"
