@@ -2,8 +2,8 @@ variable "location" {
   type = "string"
 }
 
-variable "main_resource_group" {
-  type = "map"
+variable "main_resource_group_name" {
+  type = "string"
 }
 
 variable "main_virtual_network_address_space" {
