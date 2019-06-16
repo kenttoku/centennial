@@ -1,11 +1,14 @@
+# Global
 variable "location" {
   type = "string"
 }
 
+# Main Resource Group
 variable "main_resource_group_name" {
   type = "string"
 }
 
+# Main Virtual Network
 variable "main_virtual_network_address_space" {
   type = "string"
 }
