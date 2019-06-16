@@ -5,15 +5,13 @@ provider "azurerm" {
 
 # Create resource group
 resource "azurerm_resource_group" "main" {
-  name     = "${var.main_resource_group_name}"
+  name     = "${var.prefix}-resources"
   location = "${var.location}"
 }
 
-module "network" "main" {
+module "network" {
   source              = "Azure/network/azurerm"
+  vnet_name           = "${var.prefix}-vnet"
   resource_group_name = "${azurerm_resource_group.main.name}"
   location            = "${var.location}"
-  address_space       = "${var.main_virtual_network_address_space}"
-  subnet_prefixes     = "${var.main_virtual_network_subnet_prefixes}"
-  subnet_names        = "${var.main_virtual_network_subnet_names}"
 }
