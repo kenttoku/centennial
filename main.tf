@@ -13,8 +13,7 @@ module "network" "main" {
   source              = "Azure/network/azurerm"
   resource_group_name = "${azurerm_resource_group.main.name}"
   location            = "${var.location}"
-  address_space       = "10.0.0.0/16"
-  subnet_prefixes     = ["10.0.0.0/24"]
-  subnet_names        = ["subnet1"]
+  address_space       = "${var.main_virtual_network_address_space}"
+  subnet_prefixes     = "${var.main_virtual_network_subnet_prefixes}"
+  subnet_names        = "${var.main_virtual_network_subnet_names}"
 }
-
