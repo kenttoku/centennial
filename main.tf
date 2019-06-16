@@ -5,6 +5,6 @@ provider "azurerm" {
 
 # Create resource group
 resource "azurerm_resource_group" "main" {
-  name     = "terraform"
+  name     = "${var.main_resource_group["name"]}"
   location = "${var.location}"
 }
