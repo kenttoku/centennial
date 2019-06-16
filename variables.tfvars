@@ -1,2 +1,0 @@
-location = "southcentralus"
-prefix = "tf"
