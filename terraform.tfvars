@@ -1,5 +1,5 @@
 location = "southcentralus"
 
-# main_resource_group = {
-#   name = "terraform"
-# }
+main_resource_group = {
+  name = "terraform"
+}
