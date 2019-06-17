@@ -79,8 +79,4 @@ resource "azurerm_virtual_machine" "main" {
       path     = "/home/testadmin/.ssh/authorized_keys"
     }
   }
-
-  provisioner {
-    
-  }
 }
