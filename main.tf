@@ -79,4 +79,13 @@ resource "azurerm_virtual_machine" "main" {
       path     = "/home/testadmin/.ssh/authorized_keys"
     }
   }
+
+  provisioner "remote-exec" {
+    script = "./script.sh"
+
+    connection {
+      type = "ssh"
+      user = "testadmin"
+    }
+  }
 }
